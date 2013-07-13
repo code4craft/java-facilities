@@ -1,7 +1,7 @@
 package tutorial;
 
 option java_package = "us.codecraft.serializers.protobuff";
-option java_outer_classname = "Person";
+option java_outer_classname = "PersonProto";
 
 message Person {
   required string name = 1;
