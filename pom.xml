@@ -9,8 +9,9 @@
     <artifactId>java-facilities</artifactId>
 
     <modules>  
-    <module>./jvm-serializers</module>  
-  </modules>  
+    <module>./jvm-serializers</module>
+        <module>jvm-serializers</module>
+    </modules>
 
   <build>
         <plugins>
