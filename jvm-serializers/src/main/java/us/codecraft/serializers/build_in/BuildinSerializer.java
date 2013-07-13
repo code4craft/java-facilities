@@ -12,7 +12,7 @@ import java.io.*;
 public class BuildinSerializer implements Serializer{
 
     @Override
-    public <T extends Serializable> byte[] serialize(T v) throws IOException {
+    public <T> byte[] serialize(T v) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
         objectOutputStream.writeObject(v);
@@ -20,7 +20,7 @@ public class BuildinSerializer implements Serializer{
     }
 
     @Override
-    public <T extends Serializable> T deSerialize(byte[] bytes) throws IOException {
+    public <T> T deSerialize(byte[] bytes) throws IOException {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
         try {
@@ -28,7 +28,7 @@ public class BuildinSerializer implements Serializer{
             return t;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

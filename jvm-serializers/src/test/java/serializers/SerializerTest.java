@@ -6,6 +6,8 @@ import org.junit.Test;
 import us.codecraft.serializers.Serializer;
 import us.codecraft.serializers.build_in.BuildinSerializer;
 import us.codecraft.serializers.entiy.Person;
+import us.codecraft.serializers.protobuff.PersonProto;
+import us.codecraft.serializers.protobuff.ProtobuffSerializer;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -21,7 +23,7 @@ public class SerializerTest {
 
 	private List<Serializer> serializers = new ArrayList<Serializer>();
 
-	private List<Serializable> serializables = new ArrayList<Serializable>();
+	private List<Object> serializables = new ArrayList<Object>();
 
 	@Before
 	public void setUp() {
@@ -32,16 +34,25 @@ public class SerializerTest {
 	@Test
 	public void test() throws IOException {
 		for (Serializer serializer : serializers) {
-            for (Serializable serializable : serializables) {
-                testEach(serializer,serializable);
+            for (Object o : serializables) {
+                testEach(serializer,o);
             }
         }
 	}
 
-	public void testEach(Serializer serializer, Serializable serializable) throws IOException {
-        byte[] serialize = serializer.serialize(serializable);
+	public void testEach(Serializer serializer, Object object) throws IOException {
+        byte[] serialize = serializer.serialize(object);
         Serializable deSerialized = serializer.deSerialize(serialize);
-        Assert.assertEquals(serializable,deSerialized);
+        Assert.assertEquals(object,deSerialized);
+    }
+
+    @Test
+    public void testProtobuff() throws IOException {
+        ProtobuffSerializer protobuffSerializer = new ProtobuffSerializer();
+        PersonProto.Person code4crafter = PersonProto.Person.newBuilder().setName("code4crafter").setEmail("code4crafter@gmail.com").setId(1).build();
+        byte[] serialize = protobuffSerializer.serialize(code4crafter);
+        PersonProto.Person person = protobuffSerializer.deSerialize(serialize);
+        Assert.assertEquals(code4crafter,person);
     }
 
 }

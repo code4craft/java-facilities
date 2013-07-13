@@ -1,7 +1,6 @@
 package us.codecraft.serializers;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 /**
  * @author yihua.huang@dianping.com <br>
@@ -10,8 +9,8 @@ import java.io.Serializable;
  */
 public interface Serializer {
 
-    public <T extends Serializable> byte[] serialize(T v) throws IOException;
+    public <T> byte[] serialize(T v) throws IOException;
 
-    public <T extends Serializable> T deSerialize(byte[] bytes) throws IOException;
+    public <T> T deSerialize(byte[] bytes) throws IOException;
 
 }
