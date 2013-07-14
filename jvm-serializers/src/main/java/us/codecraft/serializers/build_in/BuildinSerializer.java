@@ -16,16 +16,17 @@ public class BuildinSerializer implements Serializer{
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
         objectOutputStream.writeObject(v);
+        objectOutputStream.close();
         return byteArrayOutputStream.toByteArray();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T deSerialize(byte[] bytes) throws IOException {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
         try {
-            T t = (T) objectInputStream.readObject();
-            return t;
+            return (T) objectInputStream.readObject();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             return null;

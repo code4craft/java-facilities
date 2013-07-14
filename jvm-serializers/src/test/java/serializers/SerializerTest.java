@@ -6,6 +6,7 @@ import org.junit.Test;
 import us.codecraft.serializers.Serializer;
 import us.codecraft.serializers.build_in.BuildinSerializer;
 import us.codecraft.serializers.entiy.Person;
+import us.codecraft.serializers.hessian.HessianSerializer;
 import us.codecraft.serializers.protobuff.PersonProto;
 import us.codecraft.serializers.protobuff.ProtobuffSerializer;
 import us.codecraft.serializers.utils.ByteDumper;
@@ -29,7 +30,12 @@ public class SerializerTest {
 	@Before
 	public void setUp() {
 		serializers.add(new BuildinSerializer());
-		serializables.add(new Person());
+        serializers.add(new HessianSerializer());
+        Person person = new Person();
+        person.setId(1);
+        person.setName("code4crafter");
+        person.setEmail("code4crafter@gmail.com");
+        serializables.add(person);
 	}
 
 	@Test
@@ -42,6 +48,8 @@ public class SerializerTest {
 	}
 
 	public void testEach(Serializer serializer, Object object) throws IOException {
+        System.out.println(serializer.getClass());
+        System.out.println(object);
         byte[] serialize = serializer.serialize(object);
         System.out.println(ByteDumper.dumperArray(serialize));
         Serializable deSerialized = serializer.deSerialize(serialize);
