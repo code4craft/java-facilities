@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jvm-serializers</artifactId>
+    <artifactId>jmx</artifactId>
 
     <developers>
         <developer>
@@ -25,26 +25,6 @@
             <artifactId>junit</artifactId>
             <version>4.7</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>2.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>0.11.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.resthub</groupId>
-            <artifactId>hessian</artifactId>
-            <version>4.0.8</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
-            <artifactId>protostuff-core</artifactId>
-            <version>1.0.7</version>
         </dependency>
     </dependencies>
 
