@@ -1,4 +1,4 @@
-package us.codecraft.java8.stream;
+package us.codecraft.java8;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class StreamTest {
                 .map(String::valueOf)
                 .collect(Collectors.<String>toList());
 
+        //print all elements
         strings.stream().forEach((e) -> {
             System.out.println(e + " " + e.getClass());
         });
