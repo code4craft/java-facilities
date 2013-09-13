@@ -11,6 +11,11 @@
     <modules>  
     <module>./jvm-serializers</module>
         <module>jvm-serializers</module>
+        <module>jmx</module>
+        <module>nio</module>
+        <module>orm</module>
+        <module>template</module>
+        <module>java8</module>
     </modules>
 
   <build>
