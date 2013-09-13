@@ -38,7 +38,7 @@ public class FunctionTest {
         consumer.accept("two way " + supplier.get());
     }
 
-    public static void bifunction(BiFunction<String,String,String> biFunction) {
+    public static void biFunction(BiFunction<String,String,String> biFunction) {
         System.out.println(biFunction.apply("foo","bar"));
     }
 
@@ -54,6 +54,6 @@ public class FunctionTest {
         twoWay(functionTest::foo, System.out::println);
         twoWay(functionTest::bar, System.out::println);
 
-        bifunction("foo bar foo bar"::replace);
+        biFunction("foo bar foo bar"::replace);
     }
 }

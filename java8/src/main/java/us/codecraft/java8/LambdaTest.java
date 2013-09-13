@@ -17,6 +17,8 @@ public class LambdaTest {
             return e > 0;
         };
 
+        int x = 0;
+
         System.out.println(selector.select(1));
 
     }
