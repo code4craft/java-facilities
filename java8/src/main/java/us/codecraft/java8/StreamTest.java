@@ -16,12 +16,10 @@ public class StreamTest {
         intList.add(2);
 
         //convert integers to strings
-        List<String> strings = intList.stream()
-                .map(String::valueOf)
-                .collect(Collectors.<String>toList());
+        List<String> strings = intList.stream().map(String::valueOf).collect(Collectors.<String>toList());
 
         //print all elements
-        strings.stream().forEach((e) -> {
+        strings.stream().forEach(e -> {
             System.out.println(e + " " + e.getClass());
         });
 
