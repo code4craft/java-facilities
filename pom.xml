@@ -15,7 +15,7 @@
         <module>nio</module>
         <module>orm</module>
         <module>template</module>
-        <module>java8</module>
+        <!--<module>java8</module>-->
     </modules>
 
   <build>
