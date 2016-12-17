@@ -15,6 +15,7 @@
         <module>nio</module>
         <module>orm</module>
         <module>template</module>
+        <module>graphql</module>
         <!--<module>java8</module>-->
     </modules>
 
