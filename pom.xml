@@ -16,6 +16,7 @@
         <module>template</module>
         <module>graphql</module>
         <module>spring-boot</module>
+        <module>hibernate</module>
         <!--<module>java8</module>-->
     </modules>
 
